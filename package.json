@@ -1,0 +1,29 @@
+{
+  "name": "parking-demo",
+  "version": "1.0.0",
+  "description": "demo for parking application",
+  "main": "syncService.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NoahT/twilio-app.git"
+  },
+  "keywords": [
+    "twilio",
+    "node",
+    "angular"
+  ],
+  "author": "noahT",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NoahT/twilio-app/issues"
+  },
+  "homepage": "https://github.com/NoahT/twilio-app#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "twilio": "^3.9.0"
+  }
+}
