@@ -6,7 +6,7 @@ const express = require('express');
 
 const client = new Twilio(process.env.TWILIO_ACCOUNT_SID, process.env.AUTH_TOKEN);
 const service = client.sync.services('IS1ba23e1f2037da8dedca06772293d33e');
-
+//require('twilio')(apiKey, apiSecret, {accountSid: accountSid});
 let AccessToken = require('twilio').jwt.AccessToken;
 let SyncGrant = AccessToken.SyncGrant;
 
@@ -28,12 +28,11 @@ let requestID = (function() {
 //let id = 0;
 
 
-//expressApp.use(express.static(__dirname));
+//expressApp.use(express.static(__dirname + "/landing"));
+expressApp.use(express.static(__dirname));
 
-expressApp.get('/park', function(req, res) {
-	console.log('loaded');
-
-	let grantSync = new SyncGrant({
+expressApp.get('/token', function(req, res) {
+	let syncGrant = new SyncGrant({
 		serviceSid: process.env.TWILIO_SYNC_SERVICE_SID,
 	});
 
@@ -42,11 +41,11 @@ expressApp.get('/park', function(req, res) {
 		process.env.TWILIO_API_KEY,
 		process.env.TWILIO_API_SECRET
 		);
-	token.addGrant(grantSync);
 
-	
+	token.addGrant(syncGrant);
+
 	res.send({
-		identity: requestID.generate(),
+		//identity: requestID.generate(),
 		token: token.toJwt(),
 	});
 	//res.write(express.static(__dirname + '/index.html'));
@@ -58,8 +57,8 @@ expressApp.get('/park', function(req, res) {
 	});*/
 });
 
-expressApp.get('/park', function(req, res) {
-	res.write(__dirname + '/index.html')
+expressApp.get('/', function(req, res) {
+	res.sendFile('\\index.html');
 });
 
 let port = process.env.PORT || 5000;

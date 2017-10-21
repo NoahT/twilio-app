@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html ng-app="carApp">
+<script src="https://media.twiliocdn.com/sdk/js/sync/v0.6/twilio-sync.min.js"></script>
+<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="strap.js"></script>
+<html>
 <head>
-	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="strap.js"></script>
 	<title>Car Application</title>
 </head>
 <body>
 	<h1>Car Parking Application Demo</h1>
-	<p>Car demo</p>
+	<div id="mainContent">
+		<p>Spots taken: <span id="spotsTaken"></span></p>
+		<p>Spots left: <span id="spotsLeft"></span></p>
+	</div>
 </body>
 </html>
 
